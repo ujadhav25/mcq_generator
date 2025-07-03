@@ -18,8 +18,6 @@ An intelligent Multiple Choice Question (MCQ) generator that creates tailored qu
 
 ![alt text](image.png)
 
-_Add a screenshot or GIF showing your application in action_
-
 ## 📋 Prerequisites
 
 - Python 3.8 or higher
