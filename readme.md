@@ -5,7 +5,7 @@ An intelligent Multiple Choice Question (MCQ) generator that creates tailored qu
 ## 🌟 Features
 
 - **Text-to-MCQ Generation**: Convert any text content into multiple choice questions
-- **File Upload Support**: Process PDF, TXT, and DOCX files
+- **File Upload Support**: Process PDF or TXT files
 - **Customizable Parameters**:
   - Number of questions
   - Subject/topic specification
@@ -13,12 +13,10 @@ An intelligent Multiple Choice Question (MCQ) generator that creates tailored qu
   - Question complexity control
 - **Interactive Web Interface**: User-friendly Streamlit-based GUI
 - **Real-time Generation**: Fast MCQ creation with immediate results
-- **Export Options**: Download generated MCQs in various formats
-- **Smart Question Analysis**: Intelligent content parsing and question formulation
 
 ## 🚀 Demo
 
-![MCQ Generator Demo](path/to/demo.gif)
+![alt text](image.png)
 
 _Add a screenshot or GIF showing your application in action_
 
@@ -26,8 +24,7 @@ _Add a screenshot or GIF showing your application in action_
 
 - Python 3.8 or higher
 - pip package manager
-- OpenAI API key (if using OpenAI models)
-- Internet connection for API calls
+- Gemini API key
 
 ## 🔧 Installation
 
@@ -54,7 +51,7 @@ _Add a screenshot or GIF showing your application in action_
 4. **Set up environment variables**
    Create a `.env` file in the root directory:
    ```env
-   OPENAI_API_KEY=your_openai_api_key_here
+   GEMINI_API_KEY=your_openai_api_key_here
    # Add other API keys as needed
    ```
 
@@ -65,7 +62,7 @@ _Add a screenshot or GIF showing your application in action_
 1. **Start the Streamlit app**
 
    ```bash
-   streamlit run app.py
+   streamlit run StreamlitApp.py
    ```
 
 2. **Access the web interface**
@@ -75,8 +72,7 @@ _Add a screenshot or GIF showing your application in action_
 
 1. **Upload Content**
 
-   - Upload a PDF, TXT, or DOCX file
-   - Or paste text directly into the text area
+   - Upload a PDF or TXT file
 
 2. **Configure Parameters**
 
@@ -98,59 +94,16 @@ _Add a screenshot or GIF showing your application in action_
 ### Command Line Usage
 
 ```bash
-python mcq_generator.py --input "path/to/file.txt" --num_questions 10 --subject "Science" --difficulty "Medium"
-```
-
-## 📁 Project Structure
-
-```
-mcq_generator/
-├── app.py                 # Main Streamlit application
-├── mcq_generator.py       # Core MCQ generation logic
-├── utils/
-│   ├── __init__.py
-│   ├── text_processor.py  # Text preprocessing utilities
-│   ├── file_handler.py    # File upload and processing
-│   └── question_formatter.py # Question formatting utilities
-├── models/
-│   ├── __init__.py
-│   └── llm_interface.py   # LLM integration
-├── templates/
-│   └── mcq_template.html  # Question display templates
-├── requirements.txt       # Python dependencies
-├── .env.example          # Environment variables example
-├── .gitignore
-└── README.md
+python mcq_generator.py --input "path/to/file.txt" --num_questions 10 --subject "Science" --tone "Medium"
 ```
 
 ## 🛠️ Configuration
 
 ### Environment Variables
 
-| Variable          | Description                         | Required         |
-| ----------------- | ----------------------------------- | ---------------- |
-| `OPENAI_API_KEY`  | OpenAI API key for GPT models       | Yes              |
-| `MAX_QUESTIONS`   | Maximum number of questions allowed | No (default: 50) |
-| `DEFAULT_SUBJECT` | Default subject for MCQs            | No               |
-
-### Model Configuration
-
-The application supports multiple language models:
-
-- OpenAI GPT-3.5/GPT-4
-- Hugging Face Transformers
-- Local models (optional)
-
-Update the model configuration in `config.py`:
-
-```python
-MODEL_CONFIG = {
-    "provider": "openai",  # or "huggingface", "local"
-    "model_name": "gpt-3.5-turbo",
-    "temperature": 0.7,
-    "max_tokens": 2000
-}
-```
+| Variable         | Description                   | Required |
+| ---------------- | ----------------------------- | -------- |
+| `GEMINI_API_KEY` | Gemini API key for GPT models | Yes      |
 
 ## 🔍 How It Works
 
@@ -158,7 +111,7 @@ MODEL_CONFIG = {
 2. **Content Analysis**: Key concepts and topics are identified
 3. **Question Generation**: AI models create relevant MCQs
 4. **Answer Validation**: Generated options are verified for accuracy
-5. **Formatting**: Questions are formatted for display/export
+5. **Formatting**: Questions are formatted for display
 
 ## 📊 Examples
 
@@ -190,20 +143,8 @@ We welcome contributions! Please follow these steps:
 
 ### Development Guidelines
 
-- Follow PEP 8 style guide
-- Add tests for new features
 - Update documentation as needed
 - Ensure compatibility with Python 3.8+
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🐛 Known Issues
-
-- Large files (>10MB) may take longer to process
-- Some complex mathematical equations might not generate optimal questions
-- PDF parsing accuracy depends on document quality
 
 ## 🗺️ Roadmap
 
@@ -220,11 +161,11 @@ If you encounter any issues or have questions:
 
 1. Check the [Issues](https://github.com/ujadhav25/mcq_generator/issues) page
 2. Create a new issue if your problem isn't already reported
-3. Contact: [your-email@example.com](mailto:your-email@example.com)
+3. Contact: [your-email@example.com](mailto:ujadhav25@gmail.com)
 
 ## 🙏 Acknowledgments
 
-- OpenAI for providing powerful language models
+- Gemini API for providing powerful language models
 - Streamlit team for the amazing web app framework
 - The open-source community for various NLP libraries
 

@@ -7,7 +7,7 @@ from langchain_core.runnables import RunnableMap, RunnableLambda
 
 # Load environment variables
 load_dotenv()
-key = os.getenv("OPENAI_API_KEY")
+key = os.getenv("GEMINI_API_KEY")
 
 # --- PROMPTS ---
 quiz_prompt_template = """
