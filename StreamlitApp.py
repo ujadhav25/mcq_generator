@@ -45,9 +45,39 @@ with st.form("user_inputs"):
                     "response_json": json.dumps(RESPONSE_JSON)
                 })
 
+           
+                quiz_input_tokens = response['quiz'].usage_metadata['input_tokens']
+                quiz_output_tokens = response['quiz'].usage_metadata['output_tokens']
+                quiz_total_tokens = response['quiz'].usage_metadata['total_tokens']
+                
+                quiz_review_input_tokens = response['review'].usage_metadata['input_tokens']
+                quiz_review_output_tokens = response['review'].usage_metadata['output_tokens']
+                quiz_review_total_tokens = response['review'].usage_metadata['total_tokens']
+
                 quiz = response['quiz'].content.strip().removeprefix("```json").removesuffix("```").strip()
 
                 before_json, json_string = (response['review'].content.split("json")[0].strip().replace("```", ""), response['review'].content.split("json")[1].split("```")[0].strip())
+
+                st.markdown(f"""
+                        <ul>
+                        <li><b>Quiz</b>
+                            <ul>
+                            <li>input_tokens: {quiz_input_tokens}</li>
+                            <li>output_tokens: {quiz_output_tokens} </li>
+                            <li>total_tokens: {quiz_total_tokens}</li>
+                            </ul>
+                        </li>
+                        <li><b>Review Quiz</b>
+                            <ul>
+                            <li>input_tokens: {quiz_review_input_tokens}</li>
+                            <li>output_tokens: {quiz_review_output_tokens} </li>
+                            <li>total_tokens: {quiz_review_total_tokens}</li>
+                            </ul>
+                        </li>
+                        </ul>
+                        """, 
+                    unsafe_allow_html=True
+                )
 
                 if quiz is not None:
                     table_data=get_table_data(quiz)
