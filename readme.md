@@ -2,6 +2,8 @@
 
 An intelligent Multiple Choice Question (MCQ) generator that creates tailored quiz questions from input text using advanced NLP techniques and machine learning models.
 
+> **Tutorial Credit**: This project was built following the comprehensive tutorial by [Krish Naik, Sunny Savita, and Boktiar Ahmed Bappy.](https://www.youtube.com/watch?v=mEsleV16qdo&t=1662s) - "End To End MCQ Generator LLM App Using Langchain,OpenAI,Streamlit"
+
 ## 🌟 Features
 
 - **Text-to-MCQ Generation**: Convert any text content into multiple choice questions
